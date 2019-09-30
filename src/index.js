@@ -18,19 +18,26 @@ for (let j = 0; j < typeURLs.length; j++) {
       const typeName = data.name;
       const damageRelations = data.damage_relations;
 
+      let div = createNode("div");
       let h3 = createNode("h3");
       let ul = createNode("ul");
       let li = createNode("li");
+      let cloneDiv;
       let cloneH3;
       let cloneUL;
       let cloneLI;
 
       // console.log(damageRelations);
 
+      cloneDiv = div.cloneNode();
+      cloneDiv.className = typeName;
+      append(app, cloneDiv);
+
+      // Create Pokemon type title
       let nameTitle = createNode("h2");
       nameTitle.className = "type-" + typeName;
       nameTitle.textContent = typeName;
-      append(app, nameTitle);
+      append(cloneDiv, nameTitle);
 
       for (var key in damageRelations) {
         if (damageRelations.hasOwnProperty(key)) {
@@ -41,13 +48,13 @@ for (let j = 0; j < typeURLs.length; j++) {
           console.log(key);
           cloneH3 = h3.cloneNode();
           cloneH3.textContent = key;
-          append(app, cloneH3);
+          append(cloneDiv, cloneH3);
 
           // Create list for each damage relation
           console.log(damageTypes);
           cloneUL = ul.cloneNode();
           cloneUL.className = key;
-          append(app, cloneUL);
+          append(cloneDiv, cloneUL);
 
           // Create list item for each type in damage relation
           for (let i = 0; i < damageTypes.length; i++) {
