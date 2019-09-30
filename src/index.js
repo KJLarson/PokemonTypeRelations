@@ -19,11 +19,23 @@ fetch(fireURL)
     const noDamageFrom = data.damage_relations.no_damage_from;
     const noDamageTo = data.damage_relations.no_damage_to;
 
-    // console.log(typeName);
+    // console.log(damageRelations);
 
     let nameTitle = createNode("h2");
     nameTitle.textContent = typeName;
     append(app, nameTitle);
+
+    let doubleDamageFromTitle = createNode("h3");
+    doubleDamageFromTitle.textContent = "Double Damage From";
+    append(app, doubleDamageFromTitle);
+    let doubleDamageFromList = createNode("ul");
+    doubleDamageFromList.className = "doubleDamageFrom";
+    append(app, doubleDamageFromList);
+    for (let i = 0; i < doubleDamageFrom.length; i++) {
+      let relatedType = createNode("li");
+      relatedType.textContent = doubleDamageFrom[i].name;
+      append(doubleDamageFromList, relatedType);
+    }
   })
   .catch(error => console.log(error));
 
