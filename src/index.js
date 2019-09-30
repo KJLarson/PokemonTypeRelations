@@ -5,13 +5,14 @@ import "./custom.scss";
 const app = document.getElementById("app");
 const fireURL = "https://pokeapi.co/api/v2/type/fire/";
 const waterURL = "https://pokeapi.co/api/v2/type/water/";
+const groundURL = "https://pokeapi.co/api/v2/type/ground/";
 
-const typeURLs = [fireURL, waterURL];
+const typeURLs = [fireURL, waterURL, groundURL];
 
 for (let j = 0; j < typeURLs.length; j++) {
   fetch(typeURLs[j])
     .then(handleResponse)
-    .then(function fireData(data) {
+    .then(function typeData(data) {
       // console.log(data);
 
       const typeName = data.name;
