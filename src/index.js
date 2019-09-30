@@ -3,17 +3,9 @@ import "./custom.scss";
 // import { unlink } from "fs";
 
 const app = document.getElementById("app");
-let fire = createNode("ul");
-fire.className = "fire";
-let fireLabel = createNode("li");
-fireLabel.className = "fireLabel";
-let damageLevelsUL = createNode("ul");
-damageLevelsUL.className = "damageLevelsUL";
-// let dblDamageTypes = createNode("li");
+const fireURL = "https://pokeapi.co/api/v2/type/fire/";
 
-append(app, fire);
-
-fetch("https://pokeapi.co/api/v2/type/fire/")
+fetch(fireURL)
   .then(handleResponse)
   .then(function fireData(data) {
     // console.log(data);
