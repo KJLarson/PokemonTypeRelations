@@ -79,11 +79,11 @@ fetch(fireURL)
         append(app, cloneUL);
 
         // Create list item for each type in damage relation
-        cloneLI = li.cloneNode();
-
-        // if (damageTypes.hasOwnProperty(key)) {
-        //   // console.log(damageTypes[key]);
-        // }
+        for (let i = 0; i < damageTypes.length; i++) {
+          cloneLI = li.cloneNode();
+          cloneLI.textContent = damageTypes[i].name;
+          append(cloneUL, cloneLI);
+        }
       }
     }
   })
