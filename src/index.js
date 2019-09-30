@@ -42,6 +42,7 @@ for (let j = 0; j < typeURLs.length; j++) {
       // console.log(damageRelations);
 
       let nameTitle = createNode("h2");
+      nameTitle.className = typeName;
       nameTitle.textContent = typeName;
       append(app, nameTitle);
 
