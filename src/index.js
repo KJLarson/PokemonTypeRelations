@@ -42,7 +42,7 @@ for (let j = 0; j < typeURLs.length; j++) {
       // console.log(damageRelations);
 
       let nameTitle = createNode("h2");
-      nameTitle.className = typeName;
+      nameTitle.className = "type-" + typeName;
       nameTitle.textContent = typeName;
       append(app, nameTitle);
 
@@ -88,7 +88,7 @@ for (let j = 0; j < typeURLs.length; j++) {
           for (let i = 0; i < damageTypes.length; i++) {
             cloneLI = li.cloneNode();
             cloneLI.textContent = damageTypes[i].name;
-            cloneLI.className = damageTypes[i].name;
+            cloneLI.className = "type-" + damageTypes[i].name;
             append(cloneUL, cloneLI);
           }
         }
