@@ -11,13 +11,22 @@ fetch(fireURL)
     // console.log(data);
 
     const typeName = data.name;
-    const damageRelations = data.damage_relations;
+    // const damageRelations = data.damage_relations;
     const doubleDamageFrom = data.damage_relations.double_damage_from;
     const doubleDamageTo = data.damage_relations.double_damage_to;
     const halfDamageFrom = data.damage_relations.half_damage_from;
     const halfDamageTo = data.damage_relations.half_damage_to;
     const noDamageFrom = data.damage_relations.no_damage_from;
     const noDamageTo = data.damage_relations.no_damage_to;
+
+    const damageRelations = [
+      doubleDamageFrom,
+      doubleDamageTo,
+      halfDamageFrom,
+      halfDamageTo,
+      noDamageFrom,
+      noDamageTo
+    ];
 
     // console.log(damageRelations);
 
