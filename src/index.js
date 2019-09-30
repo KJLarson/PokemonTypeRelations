@@ -86,6 +86,7 @@ for (let j = 0; j < typeURLs.length; j++) {
           for (let i = 0; i < damageTypes.length; i++) {
             cloneLI = li.cloneNode();
             cloneLI.textContent = damageTypes[i].name;
+            cloneLI.className = damageTypes[i].name;
             append(cloneUL, cloneLI);
           }
         }
