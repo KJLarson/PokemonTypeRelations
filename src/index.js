@@ -79,7 +79,7 @@ for (let j = 0; j < typeURLs.length; j++) {
           // Create list for each damage relation
           console.log(damageTypes);
           cloneUL = ul.cloneNode();
-          cloneUL.className = "key";
+          cloneUL.className = key;
           append(app, cloneUL);
 
           // Create list item for each type in damage relation
