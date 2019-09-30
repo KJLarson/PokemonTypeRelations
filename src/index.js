@@ -18,6 +18,7 @@ fetch("https://pokeapi.co/api/v2/type/fire/")
   .then(function fireData(data) {
     // console.log(data);
 
+    const typeName = data.name;
     const damageRelations = data.damage_relations;
     const doubleDamageFrom = data.damage_relations.double_damage_from;
     const doubleDamageTo = data.damage_relations.double_damage_to;
@@ -26,7 +27,11 @@ fetch("https://pokeapi.co/api/v2/type/fire/")
     const noDamageFrom = data.damage_relations.no_damage_from;
     const noDamageTo = data.damage_relations.no_damage_to;
 
-    console.log(noDamageTo);
+    // console.log(typeName);
+
+    let nameTitle = createNode("h2");
+    nameTitle.textContent = typeName;
+    append(app, nameTitle);
   })
   .catch(error => console.log(error));
 
