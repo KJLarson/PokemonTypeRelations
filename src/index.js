@@ -18,61 +18,15 @@ fetch("https://pokeapi.co/api/v2/type/fire/")
   .then(function fireData(data) {
     // console.log(data);
 
-    let damageRelations = data.damage_relations;
-    // console.log(damageRelations);
+    const damageRelations = data.damage_relations;
+    const doubleDamageFrom = data.damage_relations.double_damage_from;
+    const doubleDamageTo = data.damage_relations.double_damage_to;
+    const halfDamageFrom = data.damage_relations.half_damage_from;
+    const halfDamageTo = data.damage_relations.half_damage_to;
+    const noDamageFrom = data.damage_relations.no_damage_from;
+    const noDamageTo = data.damage_relations.no_damage_to;
 
-    // console.log(Object.keys(damageRelations).length);
-    // for (let i = 0; i < Object.keys(damageRelations).length; i++) {
-    //   console.log(damageRelations[]);
-    // }
-
-    // Try using Underscore.js =================================
-
-    for (var key in damageRelations) {
-      if (damageRelations.hasOwnProperty(key)) {
-        // console.log(damageRelations[key]);
-        let damageTypes = damageRelations[key];
-        console.log(damageTypes);
-        if (damageTypes.hasOwnProperty(key)) {
-          // console.log(damageTypes[key]);
-        }
-      }
-    }
-
-    fireLabel.textContent = data.name;
-    append(fire, fireLabel);
-    append(fireLabel, damageLevelsUL);
-
-    // for (let damage in damageRelations) {
-
-    // for (let j = 0; j < damageRelations.length; j++) {
-    //   let damageLevelLI = createNode("li");
-    //   damageLevelLI.className = "damageLevel-" + damageRelations[j];
-    //   damageLevelLI.textContent = damageRelations[j];
-    //   append(damageLevelsUL, damageLevelLI);
-
-    //   let pokemonTypesUL = createNode("ul");
-    //   append(damageLevelLI, pokemonTypesUL);
-
-    //   for (let i = 0; i < damageRelations[j].length; i++) {
-    //     let pokemonTypeLI = createNode("li");
-    //     pokemonTypeLI.textContent = damageRelations[j][i];
-    //     append(pokemonTypesUL, pokemonTypeLI);
-    //   }
-
-    // for (let type in damage) {
-    //   let pokemonTypeLI = createNode("li");
-    //   pokemonTypeLI.textContent = type;
-    //   append(pokemonTypesUL, pokemonTypeLI);
-
-    //   for (let name in type) {
-    //     let pokemonTypeLI = createNode("li");
-    //     pokemonTypeLI.textContent = name;
-    //     append(pokemonTypesUL, pokemonTypeLI);
-    // }
-
-    // }
-    // }
+    console.log(noDamageTo);
   })
   .catch(error => console.log(error));
 
