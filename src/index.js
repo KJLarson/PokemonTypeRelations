@@ -17,12 +17,7 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       const typeName = data.name;
       const damageRelations = data.damage_relations;
-      // const doubleDamageFrom = data.damage_relations.double_damage_from;
-      // const doubleDamageTo = data.damage_relations.double_damage_to;
-      // const halfDamageFrom = data.damage_relations.half_damage_from;
-      // const halfDamageTo = data.damage_relations.half_damage_to;
-      // const noDamageFrom = data.damage_relations.no_damage_from;
-      // const noDamageTo = data.damage_relations.no_damage_to;
+
       let h3 = createNode("h3");
       let ul = createNode("ul");
       let li = createNode("li");
@@ -30,42 +25,12 @@ for (let j = 0; j < typeURLs.length; j++) {
       let cloneUL;
       let cloneLI;
 
-      // const damageRelationsArr = [
-      //   doubleDamageFrom,
-      //   doubleDamageTo,
-      //   halfDamageFrom,
-      //   halfDamageTo,
-      //   noDamageFrom,
-      //   noDamageTo
-      // ];
-
       // console.log(damageRelations);
 
       let nameTitle = createNode("h2");
       nameTitle.className = "type-" + typeName;
       nameTitle.textContent = typeName;
       append(app, nameTitle);
-
-      // Double Damage From list for Fire Type -------------
-      // let doubleDamageFromTitle = createNode("h3");
-      // doubleDamageFromTitle.textContent = "Double Damage From";
-      // append(app, doubleDamageFromTitle);
-      // let doubleDamageFromList = createNode("ul");
-      // doubleDamageFromList.className = "doubleDamageFrom";
-      // append(app, doubleDamageFromList);
-      // for (let i = 0; i < doubleDamageFrom.length; i++) {
-      //   let relatedType = createNode("li");
-      //   relatedType.textContent = doubleDamageFrom[i].name;
-      //   append(doubleDamageFromList, relatedType);
-      // }
-      // ---------------------------------------
-
-      // Loop through all damage relations for Fire type
-      // for (let i = 0; i < damageRelations.length; i++) {
-      //   let damageRelationTitle = createNode("h3");
-      //   damageRelationTitle.textContent = damageRelations[i];
-      //   append(app, damageRelationTitle);
-      // }
 
       for (var key in damageRelations) {
         if (damageRelations.hasOwnProperty(key)) {
