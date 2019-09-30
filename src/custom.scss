@@ -1,0 +1,143 @@
+/* Pokemon type colors: https://bulbapedia.bulbagarden.net/wiki/Category:Type_color_templates */
+
+// $bug: #A8B820;
+// $dark: #705848;
+// $dragon: #7038F8;
+// $electric: #F8D030;
+// $fairy: #EE99AC;
+// $fighting: #C03028;
+// $fire: #F08030;
+// $flying: #A890F0;
+// $ghost: #705898;
+// $grass: #78c850;
+// $ground: #E0C068;
+// $ice: #98D8D8;
+// $normal: #a8a878;
+// $poison: #A040A0;
+// $psychic: #F85888;
+// $rock: #B8A038;
+// $steel: #B8B8D0;
+// $unknown: #68A090;
+// $water: #6890F0;
+
+$typeColors: (bug: #A8B820,
+              dark: #705848,
+              dragon: #7038F8,
+              electric: #F8D030,
+              fairy: #EE99AC,
+              fighting: #C03028,
+              fire: #F08030,
+              flying: #A890F0,
+              ghost: #705898,
+              grass: #78c850,
+              ground: #E0C068,
+              ice: #98D8D8,
+              normal: #a8a878,
+              poison: #A040A0,
+              psychic: #F85888,
+              rock: #B8A038,
+              steel: #B8B8D0,
+              unknown: #68A090,
+              water: #6890F0);
+
+// @each $name, $color in $typeColors {
+//   .type-#{$name} {
+//     background-color: $color;
+//   }
+// }
+
+html {
+  height: 100 vh;
+  width: 100 vw;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Helvetica', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.2em;
+}
+
+.typesList {
+  list-style: none;
+  padding-left: 0;
+  li {
+    padding: 5px;
+  }
+}
+
+// .bug {
+//   background-color: $bug;
+// }
+
+// .dark {
+//   background-color: $dark;
+// }
+
+// .dragon {
+//   background-color: $dragon;
+// }
+
+// .electric {
+//   background-color: $electric;
+// }
+
+// .fairy {
+//   background-color: $fairy;
+// }
+
+// .fighting {
+//   background-color: $fighting;
+// }
+
+// .fire {
+//   background-color: $fire;
+// }
+
+// .flying {
+//   background-color: $flying;
+// }
+
+// .ghost {
+//   background-color: $ghost;
+// }
+
+// .grass {
+//   background-color: $grass;
+// }
+
+// .ground {
+//   background-color: $ground;
+// }
+
+// .ice {
+//   background-color: $ice;
+// }
+
+// .normal {
+//   background-color: $normal;
+// }
+
+// .poison {
+//   background-color: $poison;
+// }
+
+// .psychic {
+//   background-color: $psychic;
+// }
+
+// .rock {
+//   background-color: $rock;
+// }
+
+// .steel {
+//   background-color: $steel;
+// }
+
+// .unknown {
+//   background-color: $unknown;
+// }
+
+// .water {
+//   background-color: $water;
+// }

@@ -1,2 +1,0 @@
-# PokemonTypeRelations
-Created with CodeSandbox
