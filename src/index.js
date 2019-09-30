@@ -11,7 +11,7 @@ fetch(fireURL)
     // console.log(data);
 
     const typeName = data.name;
-    // const damageRelations = data.damage_relations;
+    const damageRelations = data.damage_relations;
     const doubleDamageFrom = data.damage_relations.double_damage_from;
     const doubleDamageTo = data.damage_relations.double_damage_to;
     const halfDamageFrom = data.damage_relations.half_damage_from;
@@ -19,7 +19,7 @@ fetch(fireURL)
     const noDamageFrom = data.damage_relations.no_damage_from;
     const noDamageTo = data.damage_relations.no_damage_to;
 
-    const damageRelations = [
+    const damageRelationsArr = [
       doubleDamageFrom,
       doubleDamageTo,
       halfDamageFrom,
@@ -34,17 +34,19 @@ fetch(fireURL)
     nameTitle.textContent = typeName;
     append(app, nameTitle);
 
-    let doubleDamageFromTitle = createNode("h3");
-    doubleDamageFromTitle.textContent = "Double Damage From";
-    append(app, doubleDamageFromTitle);
-    let doubleDamageFromList = createNode("ul");
-    doubleDamageFromList.className = "doubleDamageFrom";
-    append(app, doubleDamageFromList);
-    for (let i = 0; i < doubleDamageFrom.length; i++) {
-      let relatedType = createNode("li");
-      relatedType.textContent = doubleDamageFrom[i].name;
-      append(doubleDamageFromList, relatedType);
-    }
+    // Double Damage From list for Fire Type -------------
+    // let doubleDamageFromTitle = createNode("h3");
+    // doubleDamageFromTitle.textContent = "Double Damage From";
+    // append(app, doubleDamageFromTitle);
+    // let doubleDamageFromList = createNode("ul");
+    // doubleDamageFromList.className = "doubleDamageFrom";
+    // append(app, doubleDamageFromList);
+    // for (let i = 0; i < doubleDamageFrom.length; i++) {
+    //   let relatedType = createNode("li");
+    //   relatedType.textContent = doubleDamageFrom[i].name;
+    //   append(doubleDamageFromList, relatedType);
+    // }
+    // ---------------------------------------
   })
   .catch(error => console.log(error));
 
