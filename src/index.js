@@ -4,90 +4,95 @@ import "./custom.scss";
 
 const app = document.getElementById("app");
 const fireURL = "https://pokeapi.co/api/v2/type/fire/";
+const waterURL = "https://pokeapi.co/api/v2/type/water/";
 
-fetch(fireURL)
-  .then(handleResponse)
-  .then(function fireData(data) {
-    // console.log(data);
+const typeURLs = [fireURL, waterURL];
 
-    const typeName = data.name;
-    const damageRelations = data.damage_relations;
-    const doubleDamageFrom = data.damage_relations.double_damage_from;
-    const doubleDamageTo = data.damage_relations.double_damage_to;
-    const halfDamageFrom = data.damage_relations.half_damage_from;
-    const halfDamageTo = data.damage_relations.half_damage_to;
-    const noDamageFrom = data.damage_relations.no_damage_from;
-    const noDamageTo = data.damage_relations.no_damage_to;
-    let h3 = createNode("h3");
-    let ul = createNode("ul");
-    let li = createNode("li");
-    let cloneH3;
-    let cloneUL;
-    let cloneLI;
+for (let j = 0; j < typeURLs.length; j++) {
+  fetch(typeURLs[j])
+    .then(handleResponse)
+    .then(function fireData(data) {
+      // console.log(data);
 
-    const damageRelationsArr = [
-      doubleDamageFrom,
-      doubleDamageTo,
-      halfDamageFrom,
-      halfDamageTo,
-      noDamageFrom,
-      noDamageTo
-    ];
+      const typeName = data.name;
+      const damageRelations = data.damage_relations;
+      // const doubleDamageFrom = data.damage_relations.double_damage_from;
+      // const doubleDamageTo = data.damage_relations.double_damage_to;
+      // const halfDamageFrom = data.damage_relations.half_damage_from;
+      // const halfDamageTo = data.damage_relations.half_damage_to;
+      // const noDamageFrom = data.damage_relations.no_damage_from;
+      // const noDamageTo = data.damage_relations.no_damage_to;
+      let h3 = createNode("h3");
+      let ul = createNode("ul");
+      let li = createNode("li");
+      let cloneH3;
+      let cloneUL;
+      let cloneLI;
 
-    // console.log(damageRelations);
+      // const damageRelationsArr = [
+      //   doubleDamageFrom,
+      //   doubleDamageTo,
+      //   halfDamageFrom,
+      //   halfDamageTo,
+      //   noDamageFrom,
+      //   noDamageTo
+      // ];
 
-    let nameTitle = createNode("h2");
-    nameTitle.textContent = typeName;
-    append(app, nameTitle);
+      // console.log(damageRelations);
 
-    // Double Damage From list for Fire Type -------------
-    // let doubleDamageFromTitle = createNode("h3");
-    // doubleDamageFromTitle.textContent = "Double Damage From";
-    // append(app, doubleDamageFromTitle);
-    // let doubleDamageFromList = createNode("ul");
-    // doubleDamageFromList.className = "doubleDamageFrom";
-    // append(app, doubleDamageFromList);
-    // for (let i = 0; i < doubleDamageFrom.length; i++) {
-    //   let relatedType = createNode("li");
-    //   relatedType.textContent = doubleDamageFrom[i].name;
-    //   append(doubleDamageFromList, relatedType);
-    // }
-    // ---------------------------------------
+      let nameTitle = createNode("h2");
+      nameTitle.textContent = typeName;
+      append(app, nameTitle);
 
-    // Loop through all damage relations for Fire type
-    // for (let i = 0; i < damageRelations.length; i++) {
-    //   let damageRelationTitle = createNode("h3");
-    //   damageRelationTitle.textContent = damageRelations[i];
-    //   append(app, damageRelationTitle);
-    // }
+      // Double Damage From list for Fire Type -------------
+      // let doubleDamageFromTitle = createNode("h3");
+      // doubleDamageFromTitle.textContent = "Double Damage From";
+      // append(app, doubleDamageFromTitle);
+      // let doubleDamageFromList = createNode("ul");
+      // doubleDamageFromList.className = "doubleDamageFrom";
+      // append(app, doubleDamageFromList);
+      // for (let i = 0; i < doubleDamageFrom.length; i++) {
+      //   let relatedType = createNode("li");
+      //   relatedType.textContent = doubleDamageFrom[i].name;
+      //   append(doubleDamageFromList, relatedType);
+      // }
+      // ---------------------------------------
 
-    for (var key in damageRelations) {
-      if (damageRelations.hasOwnProperty(key)) {
-        // console.log(damageRelations[key]);
-        let damageTypes = damageRelations[key];
+      // Loop through all damage relations for Fire type
+      // for (let i = 0; i < damageRelations.length; i++) {
+      //   let damageRelationTitle = createNode("h3");
+      //   damageRelationTitle.textContent = damageRelations[i];
+      //   append(app, damageRelationTitle);
+      // }
 
-        // Create title for each damage relation
-        console.log(key);
-        cloneH3 = h3.cloneNode();
-        cloneH3.textContent = key;
-        append(app, cloneH3);
+      for (var key in damageRelations) {
+        if (damageRelations.hasOwnProperty(key)) {
+          // console.log(damageRelations[key]);
+          let damageTypes = damageRelations[key];
 
-        // Create list for each damage relation
-        console.log(damageTypes);
-        cloneUL = ul.cloneNode();
-        cloneUL.className = "key";
-        append(app, cloneUL);
+          // Create title for each damage relation
+          console.log(key);
+          cloneH3 = h3.cloneNode();
+          cloneH3.textContent = key;
+          append(app, cloneH3);
 
-        // Create list item for each type in damage relation
-        for (let i = 0; i < damageTypes.length; i++) {
-          cloneLI = li.cloneNode();
-          cloneLI.textContent = damageTypes[i].name;
-          append(cloneUL, cloneLI);
+          // Create list for each damage relation
+          console.log(damageTypes);
+          cloneUL = ul.cloneNode();
+          cloneUL.className = "key";
+          append(app, cloneUL);
+
+          // Create list item for each type in damage relation
+          for (let i = 0; i < damageTypes.length; i++) {
+            cloneLI = li.cloneNode();
+            cloneLI.textContent = damageTypes[i].name;
+            append(cloneUL, cloneLI);
+          }
         }
       }
-    }
-  })
-  .catch(error => console.log(error));
+    })
+    .catch(error => console.log(error));
+}
 
 function handleResponse(response) {
   let contentType = response.headers.get("content-type");
