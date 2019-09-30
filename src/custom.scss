@@ -61,8 +61,10 @@ body {
 ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
   li {
     padding: 5px;
+    margin: 5px;
   }
 }
 
