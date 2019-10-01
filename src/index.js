@@ -38,8 +38,6 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       // Create a div for each Pokemon type
       cloneDiv = div.cloneNode();
-      // cloneDiv.className = typeName;
-      // clondeDiv.className += "type-div";
       cloneDiv.classList.add("typeDiv", typeName);
       cloneDiv.id = "div-" + typeName;
       cloneDiv.style.display = "none";
@@ -47,16 +45,21 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       // Create Pokemon type title
       let nameTitle = createNode("h2");
-      nameTitle.className = "type-" + typeName;
+      // nameTitle.className = "type-" + typeName;
       nameTitle.classList.add("typeName", "type-" + typeName);
       nameTitle.textContent = typeName;
       append(cloneDiv, nameTitle);
 
-      // loop through each damage amount
+      // loop through each damage relation
       for (var key in damageRelations) {
         if (damageRelations.hasOwnProperty(key)) {
           // console.log(damageRelations[key]);
           let damageTypes = damageRelations[key];
+
+          // create div for each damage relation
+          cloneDiv = div.cloneNode();
+          cloneDiv.classList.add(key);
+          document.getElementById("div-" + typeName).appendChild(cloneDiv);
 
           // Create title for each damage relation
           console.log(key);
