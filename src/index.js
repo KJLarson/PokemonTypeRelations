@@ -38,7 +38,9 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       // Create a div for each Pokemon type
       cloneDiv = div.cloneNode();
-      cloneDiv.className = typeName;
+      // cloneDiv.className = typeName;
+      // clondeDiv.className += "type-div";
+      cloneDiv.classList.add("typeDiv", typeName);
       cloneDiv.id = "div-" + typeName;
       cloneDiv.style.display = "none";
       append(app, cloneDiv);
@@ -46,6 +48,7 @@ for (let j = 0; j < typeURLs.length; j++) {
       // Create Pokemon type title
       let nameTitle = createNode("h2");
       nameTitle.className = "type-" + typeName;
+      nameTitle.classList.add("typeName", "type-" + typeName);
       nameTitle.textContent = typeName;
       append(cloneDiv, nameTitle);
 
@@ -59,6 +62,7 @@ for (let j = 0; j < typeURLs.length; j++) {
           console.log(key);
           cloneH3 = h3.cloneNode();
           cloneH3.textContent = key;
+          cloneH3.className = key;
           append(cloneDiv, cloneH3);
 
           // Create list for each damage relation
@@ -148,9 +152,9 @@ function append(parent, el) {
 function toggle_visibility(id) {
   var element = document.getElementById(id);
 
-  if (element.style.display === "block") {
+  if (element.style.display === "grid") {
     element.style.display = "none";
   } else {
-    element.style.display = "block";
+    element.style.display = "grid";
   }
 }

@@ -58,6 +58,15 @@ body {
   font-size: 1.2em;
 }
 
+.typeDiv {
+  // display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.typeName {
+  grid-column: 1 / 3;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
