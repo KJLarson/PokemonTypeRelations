@@ -47,7 +47,7 @@ for (let j = 0; j < typeURLs.length; j++) {
       // Create Pokemon type title
       let nameTitle = createNode("h2");
       nameTitle.classList.add("typeName", "type-" + typeName);
-      nameTitle.textContent = typeName;
+      nameTitle.textContent = capitalize_Words(typeName);
       append(cloneDiv, nameTitle);
 
       // loop through each damage relation
