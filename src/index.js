@@ -3,12 +3,13 @@ import "./custom.scss";
 // import { unlink } from "fs";
 
 const app = document.getElementById("app");
-const fireURL = "https://pokeapi.co/api/v2/type/fire/";
-const waterURL = "https://pokeapi.co/api/v2/type/water/";
-const groundURL = "https://pokeapi.co/api/v2/type/ground/";
 
+const fireURL = "https://pokeapi.co/api/v2/type/fire/";
+const groundURL = "https://pokeapi.co/api/v2/type/ground/";
+const waterURL = "https://pokeapi.co/api/v2/type/water/";
 const typeURLs = [fireURL, waterURL, groundURL];
-const types = ["fire", "water", "ground"];
+
+const types = ["fire", "ground", "water"];
 
 let button = createNode("button");
 let cloneButton;
@@ -33,8 +34,11 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       // console.log(damageRelations);
 
+      // Create a div for each Pokemon type
       cloneDiv = div.cloneNode();
       cloneDiv.className = typeName;
+      cloneDiv.id = "div-" + typeName;
+      cloneDiv.style.display = "none";
       append(app, cloneDiv);
 
       // Create Pokemon type title
@@ -43,6 +47,7 @@ for (let j = 0; j < typeURLs.length; j++) {
       nameTitle.textContent = typeName;
       append(cloneDiv, nameTitle);
 
+      // loop through each damage amount
       for (var key in damageRelations) {
         if (damageRelations.hasOwnProperty(key)) {
           // console.log(damageRelations[key]);
@@ -113,11 +118,19 @@ function handleTextResponse(response) {
   });
 }
 
+// Button for each Pokemon type
 for (let k = 0; k < types.length; k++) {
+  // Create button
   cloneButton = button.cloneNode();
   cloneButton.textContent = types[k];
   cloneButton.className = "type-" + types[k];
+  cloneButton.id = "btn-" + types[k];
   append(app, cloneButton);
+
+  // Make each button toggle corresponding Pokemon type div
+  document.getElementById("btn-" + types[k]).addEventListener("click", () => {
+    toggle_visibility("div-" + types[k]);
+  });
 }
 
 // Helper functions ----------------------------
@@ -128,4 +141,14 @@ function createNode(element) {
 
 function append(parent, el) {
   return parent.appendChild(el);
+}
+
+function toggle_visibility(id) {
+  var element = document.getElementById(id);
+
+  if (element.style.display === "block") {
+    element.style.display = "none";
+  } else {
+    element.style.display = "block";
+  }
 }
