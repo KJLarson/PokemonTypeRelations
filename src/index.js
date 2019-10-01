@@ -4,12 +4,14 @@ import "./custom.scss";
 
 const app = document.getElementById("app");
 
+const fairyURL = "https://pokeapi.co/api/v2/type/fairy/";
 const fireURL = "https://pokeapi.co/api/v2/type/fire/";
 const groundURL = "https://pokeapi.co/api/v2/type/ground/";
+const normalURL = "https://pokeapi.co/api/v2/type/normal/";
 const waterURL = "https://pokeapi.co/api/v2/type/water/";
-const typeURLs = [fireURL, waterURL, groundURL];
+const typeURLs = [fairyURL, fireURL, groundURL, normalURL, waterURL];
 
-const types = ["fire", "ground", "water"];
+const types = ["fairy", "fire", "ground", "normal", "water"];
 
 let button = createNode("button");
 let cloneButton;
