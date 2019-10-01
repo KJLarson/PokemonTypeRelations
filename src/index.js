@@ -16,6 +16,7 @@ const types = ["fairy", "fire", "ground", "normal", "water"];
 let button = createNode("button");
 let cloneButton;
 
+// Get data and build HTML for each Pokemon type's damage relations
 for (let j = 0; j < typeURLs.length; j++) {
   fetch(typeURLs[j])
     .then(handleResponse)
@@ -45,7 +46,6 @@ for (let j = 0; j < typeURLs.length; j++) {
 
       // Create Pokemon type title
       let nameTitle = createNode("h2");
-      // nameTitle.className = "type-" + typeName;
       nameTitle.classList.add("typeName", "type-" + typeName);
       nameTitle.textContent = typeName;
       append(cloneDiv, nameTitle);
@@ -138,21 +138,24 @@ for (let k = 0; k < types.length; k++) {
 
   // Make each button toggle corresponding Pokemon type div
   document.getElementById("btn-" + types[k]).addEventListener("click", () => {
-    toggle_visibility("div-" + types[k]);
+    toggle_visibility_grid("div-" + types[k]);
   });
 }
 
 // Helper functions ----------------------------
 
+// create new element
 function createNode(element) {
   return document.createElement(element);
 }
 
+// add element to HTML
 function append(parent, el) {
   return parent.appendChild(el);
 }
 
-function toggle_visibility(id) {
+// Toggle visibility of element
+function toggle_visibility_grid(id) {
   var element = document.getElementById(id);
 
   if (element.style.display === "grid") {
