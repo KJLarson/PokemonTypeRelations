@@ -8,6 +8,10 @@ const waterURL = "https://pokeapi.co/api/v2/type/water/";
 const groundURL = "https://pokeapi.co/api/v2/type/ground/";
 
 const typeURLs = [fireURL, waterURL, groundURL];
+const types = ["fire", "water", "ground"];
+
+let button = createNode("button");
+let cloneButton;
 
 for (let j = 0; j < typeURLs.length; j++) {
   fetch(typeURLs[j])
@@ -107,6 +111,13 @@ function handleTextResponse(response) {
       });
     }
   });
+}
+
+for (let k = 0; k < types.length; k++) {
+  cloneButton = button.cloneNode();
+  cloneButton.textContent = types[k];
+  cloneButton.className = "type-" + types[k];
+  append(app, cloneButton);
 }
 
 // Helper functions ----------------------------
