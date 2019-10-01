@@ -62,14 +62,14 @@ for (let j = 0; j < typeURLs.length; j++) {
           document.getElementById("div-" + typeName).appendChild(cloneDiv);
 
           // Create title for each damage relation
-          console.log(key);
+          // console.log(key);
           cloneH3 = h3.cloneNode();
-          cloneH3.textContent = key;
+          cloneH3.textContent = capitalize_Words(key.split("_").join(" "));
           cloneH3.className = key;
           append(cloneDiv, cloneH3);
 
           // Create list for each damage relation
-          console.log(damageTypes);
+          // console.log(damageTypes);
           cloneUL = ul.cloneNode();
           cloneUL.className = key;
           append(cloneDiv, cloneUL);
@@ -163,4 +163,11 @@ function toggle_visibility_grid(id) {
   } else {
     element.style.display = "grid";
   }
+}
+
+//capitalize_Words
+function capitalize_Words(str) {
+  return str.replace(/\w\S*/g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
 }
